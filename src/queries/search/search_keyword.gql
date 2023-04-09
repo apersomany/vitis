@@ -1,0 +1,18 @@
+query ($input: SearchKeywordInput!) {
+    searchKeyword(searchKeywordInput: $input) {
+        list {
+            thumbnail
+            row1
+            row2
+            row3 {
+                metaList
+            }
+            eventLog {
+                eventMeta {
+                    id
+                }
+            }
+        }
+        total
+    }
+}

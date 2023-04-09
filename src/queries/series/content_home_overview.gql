@@ -1,0 +1,16 @@
+query ($seriesId: Long!) {
+    contentHomeOverview(seriesId: $seriesId) {
+        content {
+            title
+            thumbnail
+            authors
+            waitfreeBlockCount
+            freeSlideCount
+            serviceProperty {
+                viewCount
+                ratingCount
+                ratingSum
+            }
+        }
+    }
+}

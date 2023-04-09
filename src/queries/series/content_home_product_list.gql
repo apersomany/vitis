@@ -1,0 +1,15 @@
+query ($seriesId: Long!, $first: Int, $last: Int, $sortType: String) {
+    contentHomeProductList(seriesId: $seriesId, first: $first, last: $last, sortType: $sortType) {
+        totalCount
+        edges {
+            node {
+                row1 {
+                    title
+                }
+                row2
+                row3
+                scheme
+            }
+        }
+    }
+}
