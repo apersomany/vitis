@@ -912,6 +912,7 @@ dependencies = [
  "form_urlencoded",
  "idna",
  "percent-encoding",
+ "serde",
 ]
 
 [[package]]
@@ -929,6 +930,7 @@ dependencies = [
  "reqwest",
  "serde",
  "tokio",
+ "url",
 ]
 
 [[package]]

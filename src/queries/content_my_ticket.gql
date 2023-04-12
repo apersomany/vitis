@@ -1,0 +1,9 @@
+query ($seriesId: Long!) {
+    contentMyTicket(seriesId: $seriesId, includeWaitfree: true) {
+        ticketOwnCount
+        ticketRentalCount
+        waitfree {
+            chargedComplete
+        }
+    }
+}

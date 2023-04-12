@@ -1,0 +1,31 @@
+query viewerInfo($seriesId: Long!, $productId: Long!) {
+    viewerInfo(seriesId: $seriesId, productId: $productId) {
+        prevItem {
+            productId
+            title
+        }
+        nextItem {
+            productId
+            title
+        }
+        viewerData {
+            ... on ImageViewerData {
+                imageDownloadData {
+                    files {
+                        size
+                        secureUrl
+                        width
+                        height
+                    }
+                    viewDirection
+                }
+            }
+            ... on TextViewerData {
+                contentsList {
+                    secureUrl
+                }
+            }
+            type
+        }
+    }
+}

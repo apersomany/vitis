@@ -1,0 +1,9 @@
+query {
+    todayGiftList {
+        list {
+            ticketUid
+            scheme
+            isReceived
+        }
+    }
+}

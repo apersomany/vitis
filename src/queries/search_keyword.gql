@@ -7,11 +7,7 @@ query ($input: SearchKeywordInput!) {
             row3 {
                 metaList
             }
-            eventLog {
-                eventMeta {
-                    id
-                }
-            }
+            scheme
         }
         total
     }

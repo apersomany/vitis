@@ -15,6 +15,10 @@ features = ["full"]
 version = "1.0"
 features = ["derive"]
 
+[dependencies.url]
+version = "2.3"
+features = ["serde"]
+
 [dependencies]
 dashmap = "5.4"
 anyhow = "1.0"

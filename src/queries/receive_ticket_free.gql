@@ -1,0 +1,5 @@
+mutation ($input: TicketFreeMutationInput!) {
+    receiveTicketFree(input: $input) {
+        ticketCount
+    }
+}

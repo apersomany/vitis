@@ -1,0 +1,7 @@
+query ($seriesId: Long!) {
+    contentCheckFreeTicket(seriesId: $seriesId) {
+        list {
+            count
+        }
+    }
+}

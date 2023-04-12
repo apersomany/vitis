@@ -2,14 +2,15 @@ use anyhow::{anyhow, Context, Result};
 use reqwest::Client;
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 
-pub mod search {
-    pub mod search_keyword;
-}
-pub mod series {
-    pub mod content_home_overview;
-    pub mod content_home_overview_and_product_list;
-    pub mod content_home_product_list;
-}
+pub mod content_check_free_ticket;
+pub mod content_home_overview;
+pub mod content_home_overview_and_product_list;
+pub mod content_home_product_list;
+pub mod content_my_ticket;
+pub mod receive_ticket_free;
+pub mod search_keyword;
+pub mod today_gift_list;
+pub mod viewer_info;
 
 pub trait Query: Serialize {
     type Response: DeserializeOwned;
@@ -36,6 +37,14 @@ pub trait Query: Serialize {
         } else {
             Ok(res.data.context("Server replied with no data")?)
         }
+    }
+
+    async fn test(&self) -> Result<Self::Response> {
+        let client = reqwest::Client::builder()
+            .user_agent("test")
+            .build()
+            .unwrap();
+        self.send(&client).await
     }
 }
 

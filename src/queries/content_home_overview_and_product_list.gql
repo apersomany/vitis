@@ -13,7 +13,12 @@ query ($seriesId: Long!, $first: Int, $last: Int, $sortType: String) {
             }
         }
     }
-    contentHomeProductList(seriesId: $seriesId, first: $first, last: $last, sortType: $sortType) {
+    contentHomeProductList(
+        seriesId: $seriesId
+        first: $first
+        last: $last
+        sortType: $sortType
+    ) {
         totalCount
         edges {
             node {
