@@ -1,4 +1,4 @@
-query viewerInfo($seriesId: Long!, $productId: Long!) {
+query ($seriesId: Long!, $productId: Long!) {
     viewerInfo(seriesId: $seriesId, productId: $productId) {
         prevItem {
             productId

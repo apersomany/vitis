@@ -15,6 +15,12 @@ pub struct ReceiveTicketFreeInput {
     pub ticket_uid: i32,
 }
 
+#[derive(Default, Serialize)]
+pub enum TicketType {
+    #[default]
+    TodayGift,
+}
+
 impl Query for ReceiveTicketFreeReq {
     type Response = ReceiveTicketFreeRes;
 
@@ -23,19 +29,13 @@ impl Query for ReceiveTicketFreeReq {
     }
 }
 
-#[derive(Default, Serialize)]
-pub enum TicketType {
-    #[default]
-    TodayGift,
-}
-
-#[derive(Default, Deserialize)]
+#[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ReceiveTicketFreeRes {
     pub receive_ticket_free: ReceiveTicketFree,
 }
 
-#[derive(Default, Deserialize)]
+#[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ReceiveTicketFree {
     pub ticket_count: i32,

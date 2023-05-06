@@ -1,0 +1,12 @@
+query ($param: StaticLandingRankingParamInput!) {
+    staticLandingRankingSection(param: $param, sectionId: "") {
+        groups {
+            items {
+                ... on NormalListViewItem {
+                    row1
+                    scheme
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 use anyhow::{anyhow, Context, Result};
 use reqwest::Client;
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
@@ -9,11 +11,12 @@ pub mod content_home_product_list;
 pub mod content_my_ticket;
 pub mod receive_ticket_free;
 pub mod search_keyword;
+pub mod static_landing_ranking_section;
 pub mod today_gift_list;
 pub mod viewer_info;
 
-pub trait Query: Serialize {
-    type Response: DeserializeOwned;
+pub trait Query: Serialize + Default {
+    type Response: DeserializeOwned + Debug;
 
     fn query() -> &'static str;
 
@@ -39,12 +42,12 @@ pub trait Query: Serialize {
         }
     }
 
-    async fn test(&self) -> Result<Self::Response> {
+    async fn test() -> Result<Self::Response> {
         let client = reqwest::Client::builder()
             .user_agent("test")
             .build()
             .unwrap();
-        self.send(&client).await
+        Self::default().send(&client).await
     }
 }
 

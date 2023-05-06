@@ -65,14 +65,6 @@ pub struct File {
 
 #[tokio::test]
 async fn test() {
-    println!(
-        "{:#?}",
-        ViewerInfoReq {
-            series_id: 48787424,
-            product_id: 50866481,
-        }
-        .test()
-        .await
-        .unwrap()
-    );
+    let res = ViewerInfoReq::test().await.unwrap();
+    println!("{:#?}", res);
 }
